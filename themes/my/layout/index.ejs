@@ -6,6 +6,7 @@
   <body>
     <h3>first template....</h3>
     <!-- 使用page变量获取文章数据 -->
+    <!-- 显示文章主要内容 -->
     <section>
       <% page.posts.each(function(post) { %>
       <article>
@@ -13,15 +14,16 @@
           <a href="<%- url_for(post.path) %>"><%= post.title %></a>
         </div>
         <div>
-          <%- post.content %>
+          <%- post.excerpt %>
         </div>
         <div>
           <span><%- date(post.date, "YYYY-MM-DD") %></span>
         </div>
-
       </article>
       <% }) %>
     </section>
+
+    <!-- 获取文章摘录 -->
 
 
   </body>
