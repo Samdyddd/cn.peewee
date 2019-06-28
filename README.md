@@ -9,3 +9,5 @@
  hexo-browsersync （自动刷新浏览器）
  hexo-jade-renderer (pug 模板) 
  hexo-stylus-render (stylus模板)
+ hexo-admin (可以直接在页面修改文章内容/admin)
+ hexo-douban (插入豆瓣电影，读书和游戏页面)

@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <title>first template</title>
+  </head>
+  <body>
+    <h3>first template....</h3>
+    <!-- 使用page变量获取文章数据 -->
+    <section>
+      <% page.posts.each(function(post) { %>
+      <article>
+        <div>
+          <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+        </div>
+        <div>
+          <%- post.content %>
+        </div>
+        <div>
+          <span><%- date(post.date, "YYYY-MM-DD") %></span>
+        </div>
+
+      </article>
+      <% }) %>
+    </section>
+
+
+  </body>
+</html>
+
