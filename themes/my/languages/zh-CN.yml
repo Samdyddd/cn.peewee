@@ -1,0 +1,5 @@
+# 中文档，在需要翻译的字段前添加"__('Menu.' + ....)", 例子： __('Menu.'+ name)
+Menu:
+  Home: 首页
+  Archives: 归档
+  Github: 交友

@@ -1,3 +1,4 @@
+<!-- 首页 -->
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html" charset="utf-8">
@@ -13,6 +14,7 @@
         <div>
           <a href="<%- url_for(post.path) %>"><%= post.title %></a>
         </div>
+        <!-- 获取文章摘录 -->
         <div>
           <%- post.excerpt %>
         </div>
@@ -23,8 +25,9 @@
       <% }) %>
     </section>
 
-    <!-- 获取文章摘录 -->
-
+    <!-- 分页 -->
+    <%- partial('_partial/paginator') %>
+    
 
   </body>
 </html>
