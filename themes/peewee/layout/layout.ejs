@@ -1,20 +1,48 @@
+<% var isIndex = page.path === 'index.html' %>
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="">
-  <title><%= config.title %></title>
-  <%- css('css/style') %>
+  <title><%- page.title? page.title + '-': 'peewee' %></title>
+  <meta charset="utf-8">
+  <meta name="description" content="<%- theme.site_description %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scaleable=no">
+
+  <%- css(isIndex? 'css/index': 'css/page') %>
+
 </head>
 
-<body>
-  <%- partial('_partial/header') %>
-  <div class="main">
-    <%- body %>
+<body class="<%- isIndex? '': 'docus' -%>">
+
+  <div id="mobile-bar" <%- isIndex? 'class="top"': '' %>>
+    <a class="menu-button"></a>
+    <a href="/" class="logo"></a>
   </div>
-  <%- partial('_partial/footer') %>
-  <%- js('js/index.js') %>
+
+  <!-- 头部 -->
+  <%- partial('partials/header') %>
+
+  <% if(!isIndex) { %>
+    <div id="main" class="fix-sidebar">
+      <% if(page.blog_index) { %>
+      <%- partial('partials/blog') %>
+        <% } else{ %>
+          <%- body %>
+          <% } %>
+    </div>
+    <script src="<%- url_for("/js/smooth-scroll.min.js") %>"></script>
+    <% } else { %>
+    <%- body %>
+    <% } %>
+
+    <script src="<%- url_for("/js/css.escape.js") %>"></script>
+    <script src="<%- url_for("/js/common.js") %>"></script>
+
+
+
+
+  
 </body>
 
 
-</html> 
+</html>
